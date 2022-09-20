@@ -1,0 +1,233 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --main-color: #f76c6c;
+    --background-color: aliceblue;
+
+}
+body{
+    margin: 0;
+    background-color: var(--background-color);
+}
+.main {
+    width: 100%;
+    min-height: 100vh;
+    max-width: 100%;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    
+    align-items: center;
+    height: 60px;
+    background-color: var(--main-color);
+    /* text-decoration: none; 0*/
+}
+.logo {
+    text-decoration: none;
+    list-style: none;
+    font-size: 40px;
+    color: azure;
+    margin-left: 1em;
+    padding-right: 2em;
+}
+
+.nav__list{
+    display: flex;
+    /* justify-content: flex-end; */
+    font-size: 20px;
+    list-style: none;
+}
+
+.menu-link{
+    text-decoration: none;
+    color: aliceblue;
+    margin-right: 2rem;
+    padding: 1rem;
+}
+/* Mobile nav */
+.nav__bars-btn{
+    /* width: 28px;
+    height: 28px; */
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    color:white;
+    display: none;
+}
+.nav__overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    animation: fadeIn linear 0.2s;
+}
+.nav__mobile {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    
+    width: 320px;
+    height: 400px;
+    max-width: 100%;
+    background-color: #f76c6c;
+    /* opacity: 0.7; */
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform linear 0.2s, opacity linear 0.5s;
+}
+.nav__mobile-close{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+.nav__mobile-list {
+    margin-top: 24px;
+    margin-left: 50px;
+}
+.nav__mobile-link{
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 8px 0;
+    font-size: 1.4rem;
+}
+
+.nav__input:checked ~ .nav__overlay {
+    display: block;
+}
+
+.nav__input:checked ~ .nav__mobile {
+    transform: translateX(0);
+    opacity: 0.7;
+}
+
+h1{
+    font-size: 70px;
+    color: aliceblue;
+    text-align: center;
+    text-shadow: 3px 3px 3px #cfcfdb;
+    /* filter: drop-shadow(3px 3px 3px #cfcfdb); */
+}
+@media (max-width: 800px) {
+    .nav__bars-btn {
+        display: block;
+        margin-right: 2em;
+    }
+    .nav__pc{
+        display: none;
+    }
+}
+
+#title{
+    height: 380px;
+    background-image: url("https://i.postimg.cc/286yWyFz/fig01.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 2rem;
+}
+
+
+
+main{
+    margin: 0;
+    padding: 0.8rem;
+    line-height: 1.5;
+}
+
+h2{
+    padding: 0.5rem;
+}
+
+.feature{
+    display: grid;
+    padding: 2rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 150px 150px;
+    grid-template-areas: "h1 h1 h2 h3"
+                         "h1 h1 h4 h5";
+    grid-gap: 10px;
+    padding: 30px;
+}
+
+@media (max-width: 800px) {
+    .feature {
+        display: grid;
+        padding: 2rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 80px 80px 80px;
+        grid-template-areas: "h1 h1"
+                             "h2 h3" 
+                             "h4 h5";
+        grid-gap: 10px;
+        padding: 30px;
+    }
+}
+section article{
+    display: block;
+    background-color: aliceblue;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    border: 1px 2px shadow red;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px 5px #b1afaf;
+}
+section article:first-child {
+    grid-area: h1;
+}
+section article:nth-child(2) {
+    grid-area: h2;
+}
+section article:nth-child(3) {
+    grid-area: h3;
+}
+section article:nth-child(4) {
+    grid-area: h4;
+}
+section article:last-child {
+    grid-area: h5;
+}
+
+
+/* 
+  "h1 h1 h2 h3"
+  "h1 h1 h4 h5"
+
+*/
+section article:hover{
+    background-color: aquamarine;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    background-color: #f76c6c;
+    height: 40px;
+    /* padding: 20px; */
+}
+.banner {
+    /* font-weight: 800px; */
+    color: blue;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
